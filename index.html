@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="Paula Bitencourt - Nutricionista Clínica em São Leopoldo. Atendimento personalizado presencial e online para emagrecimento, saúde e mudança de hábitos.">
+    <meta name="description" content="Paula Bitencourt - Nutricionista Clínica em São Leopoldo. Atendimento personalizado presencial e online.">
     <title>Paula Bitencourt | Nutricionista Clínica</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,12 +20,10 @@
             --texto: #4A4A4A;
             --texto-dark: #2A1A10;
             --bege: #EDE4D8;
-            --bege2: #E4D8C8;
             --nav-height: 80px; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html { scroll-behavior: smooth; }
 
         body {
@@ -35,7 +34,7 @@
             padding-top: var(--nav-height); 
         }
 
-        /* TEXTURA OVERLAY */
+        /* TEXTURA GLOBAL */
         body::before {
             content: '';
             position: fixed;
@@ -43,355 +42,283 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 2000;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
-        /* ANIMAÇÃO DE REVELAÇÃO */
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all .8s ease; }
         .reveal.on { opacity: 1; transform: none; }
 
-        /* NAV - MENU FIXO */
+        /* NAVEGAÇÃO */
         nav {
             width: 100%;
             height: var(--nav-height);
-            padding: 0 40px;
+            padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 1500;
+            z-index: 2500;
             background: rgba(245, 239, 230, 0.98);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(132, 26, 28, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .nav-logo {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 0.15em;
             color: var(--vinho);
             font-weight: 700;
             text-transform: uppercase;
         }
 
-        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a {
             text-decoration: none;
             color: var(--texto);
             font-size: 0.7rem;
-            letter-spacing: 0.1em;
             text-transform: uppercase;
             font-weight: 600;
-            transition: color .2s;
+            transition: color .3s;
         }
         .nav-links a:hover { color: var(--vinho); }
 
         .nav-btn {
             background: var(--dourado);
             color: #fff !important;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 100px;
             font-size: 0.65rem !important;
-            box-shadow: 0 4px 12px rgba(198, 175, 99, 0.3);
         }
 
-        /* BANNER (SITE HEADER) - GRANDE E DE PONTA A PONTA */
+        /* BANNER (SITE HEADER) - TOTALMENTE RESPONSIVO */
         .site-header {
-            height: 500px; /* Altura imersiva vertical */
             width: 100%;
+            height: 45vh; /* Ocupa 45% da altura da tela no desktop */
+            min-height: 300px;
             background-image: url('./fotos/foto1.png');
-            background-size: cover; /* OCUPA DE UM LADO AO OUTRO */
-            background-position: center; 
+            background-size: contain; 
+            background-position: center;
             background-repeat: no-repeat;
-            position: relative;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: var(--creme);
         }
 
-        .site-header::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(245,239,230,0.1), rgba(245,239,230,0.3));
-        }
-
-        /* HERO */
+        /* HERO SECTION */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
-            padding: 60px 0;
-            background: var(--creme);
+            grid-template-columns: 1.2fr 0.8fr;
+            min-height: 70vh;
+            padding: 60px 5%;
+            gap: 40px;
+            align-items: center;
         }
 
-        .hero-left {
-            padding: 40px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 24px;
-        }
-
-        .hero-tag { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--dourado); font-weight: 700; }
+        .hero-left { display: flex; flex-direction: column; gap: 20px; }
+        .hero-tag { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--dourado); font-weight: 700; text-transform: uppercase; }
         
         .hero h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             line-height: 1.1;
             color: var(--texto-dark);
-            font-weight: 600;
         }
 
         .hero h2 em { color: var(--vinho); font-style: italic; }
-
-        .hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--texto); max-width: 480px; }
-        .hero-desc strong { color: var(--marrom); font-weight: 700; }
+        .hero-desc { font-size: 1.05rem; line-height: 1.7; max-width: 500px; }
 
         .hero-btn {
             display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            padding: 18px 35px;
             background: var(--dourado);
             color: #fff;
-            padding: 18px 38px;
             text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
             font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             border-radius: 100px;
             align-self: flex-start;
-            box-shadow: 0 10px 25px rgba(198, 175, 99, 0.4);
-            transition: all .3s;
+            box-shadow: 0 10px 20px rgba(198, 175, 99, 0.3);
+            transition: transform .3s;
         }
-        .hero-btn:hover { background: var(--marrom); transform: translateY(-3px); }
+        .hero-btn:hover { transform: translateY(-3px); background: var(--marrom); }
 
-        .hero-location { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--texto); opacity: 0.8; margin-top: 10px; }
-        .hero-location svg { width: 16px; height: 16px; fill: var(--dourado); }
-
-        .hero-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-right: 60px;
-        }
-
+        .hero-right { position: relative; width: 100%; display: flex; justify-content: center; }
         .hero-img-wrap {
-            position: relative;
             width: 100%;
-            max-width: 420px;
-            border-radius: 210px 210px 0 0;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            border-radius: 200px 200px 0 0;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(105, 71, 46, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-
-        .hero-img-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            min-height: 550px;
-        }
+        .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
         .hero-badge {
             position: absolute;
-            bottom: 30px;
-            left: -15px;
-            background: linear-gradient(135deg, var(--vinho), var(--marrom));
+            bottom: 20px;
+            left: -10px;
+            background: var(--vinho);
             color: #fff;
-            padding: 16px 28px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(132, 26, 28, 0.3);
+            padding: 15px 25px;
+            border-radius: 8px;
             font-size: 0.8rem;
             font-weight: 600;
             z-index: 10;
         }
 
         /* MARQUEE */
-        .marquee { background: linear-gradient(90deg, var(--vinho), var(--marrom)); padding: 18px 0; overflow: hidden; white-space: nowrap; }
-        .marquee-inner { display: inline-flex; animation: slide 35s linear infinite; }
-        .mi { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; padding: 0 45px; }
-        .mi span { color: var(--dourado); margin: 0 10px; }
+        .marquee { background: var(--vinho); padding: 15px 0; overflow: hidden; white-space: nowrap; }
+        .marquee-inner { display: inline-flex; animation: slide 40s linear infinite; }
+        .mi { font-size: 0.75rem; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 0 40px; }
         @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+        /* SECÇÕES GERAIS */
+        .section-padding { padding: 100px 5%; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
         /* DIFERENCIAIS */
-        .diferenciais { padding: 110px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #fff; }
-        .dif-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--texto-dark); line-height: 1.1; }
-        .dif-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .dif-card { background: var(--creme); padding: 35px; border-radius: 16px; border: 1px solid rgba(198,175,99,0.1); transition: transform 0.3s; }
-        .dif-card:hover { transform: translateY(-5px); }
+        .dif-card { background: #fff; padding: 40px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.03); }
+        .dif-card h3 { color: var(--marrom); margin-bottom: 10px; font-size: 1rem; }
 
         /* SOBRE */
-        .sobre { display: grid; grid-template-columns: 1fr 1fr; background: var(--texto-dark); color: #fff; }
-        .sobre-img img { width: 100%; height: 100%; object-fit: cover; min-height: 600px; display: block; opacity: 0.9; }
-        .sobre-content { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
-        .sobre-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 25px; color: var(--bege); }
-        .sobre-content p { font-size: 1rem; line-height: 1.8; margin-bottom: 18px; color: rgba(255,255,255,0.75); }
+        .sobre { background: var(--texto-dark); color: #fff; display: grid; grid-template-columns: 1fr 1.2fr; }
+        .sobre-img img { width: 100%; height: 100%; object-fit: cover; min-height: 500px; display: block; }
+        .sobre-content { padding: 80px 8%; }
 
         /* FAQ */
-        .faq { padding: 110px 60px; background: var(--bege); }
-        .faq-grid { max-width: 900px; margin: 0 auto; display: grid; gap: 15px; }
-        .faq-item { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .faq-q { width: 100%; padding: 25px; border: none; background: none; text-align: left; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; color: var(--marrom); font-size: 0.95rem; }
-        .faq-a { max-height: 0; overflow: hidden; transition: all 0.4s ease; padding: 0 25px; color: var(--texto); font-size: 0.95rem; line-height: 1.7; }
-        .faq-item.open .faq-a { max-height: 250px; padding-bottom: 25px; }
+        .faq { background: var(--bege); }
+        .faq-item { background: #fff; margin-bottom: 10px; border-radius: 10px; overflow: hidden; }
+        .faq-q { width: 100%; padding: 20px; text-align: left; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; color: var(--marrom); }
+        .faq-a { max-height: 0; overflow: hidden; transition: 0.3s ease; padding: 0 20px; color: var(--texto); font-size: 0.9rem; }
+        .faq-item.open .faq-a { max-height: 200px; padding-bottom: 20px; }
 
         /* CONTATO */
-        .contato { padding: 110px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; background: #fff; }
-        .fg { margin-bottom: 20px; border-bottom: 1.5px solid var(--bege2); }
-        .fg label { display: block; font-size: 0.65rem; text-transform: uppercase; color: var(--dourado); font-weight: 700; margin-bottom: 8px; }
-        .fg input, .fg textarea { width: 100%; border: none; padding: 10px 0; background: none; outline: none; font-size: 1rem; font-family: inherit; }
-        .form-btn { background: var(--vinho); color: #fff; border: none; padding: 18px 45px; border-radius: 100px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; transition: 0.3s; }
-        .form-btn:hover { background: var(--marrom); transform: scale(1.02); }
+        .fg { margin-bottom: 20px; border-bottom: 1px solid var(--bege); }
+        .fg label { font-size: 0.65rem; color: var(--dourado); font-weight: 700; text-transform: uppercase; }
+        .fg input { width: 100%; padding: 10px 0; border: none; background: none; outline: none; }
+        .form-btn { background: var(--vinho); color: #fff; border: none; padding: 18px 40px; border-radius: 50px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
 
         /* FOOTER */
-        footer { background: var(--texto-dark); color: #fff; padding: 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: 1px; }
-        .footer-brand span { color: var(--dourado); font-size: 0.8rem; display: block; margin-top: 5px; }
+        footer { background: var(--texto-dark); color: rgba(255,255,255,0.6); padding: 50px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 960px) {
-            nav { padding: 0 24px; }
+        /* --- MEDIA QUERIES (MOBILE) --- */
+        @media (max-width: 768px) {
+            :root { --nav-height: 70px; }
+            nav { padding: 0 20px; }
             .nav-links { display: none; }
-            .site-header { height: 300px; }
-            .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
-            .hero-left { padding: 40px 24px; align-items: center; }
-            .hero-right { padding: 0 24px 40px; order: -1; }
-            .hero-img-wrap { max-width: 320px; }
-            .diferenciais, .sobre, .contato { grid-template-columns: 1fr; padding: 70px 24px; gap: 50px; }
-            footer { flex-direction: column; text-align: center; gap: 20px; }
+            
+            .site-header { height: 25vh; min-height: 180px; } /* Ajuste de altura no mobile */
+            
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; gap: 30px; }
+            .hero-left { align-items: center; }
+            .hero-desc { font-size: 0.95rem; }
+            .hero-btn { align-self: center; width: 100%; justify-content: center; }
+            .hero-right { order: -1; }
+            .hero-img-wrap { max-width: 280px; }
+
+            .grid-2, .sobre { grid-template-columns: 1fr; }
+            .section-padding { padding: 60px 20px; }
+            .sobre-img img { min-height: 350px; }
+            .sobre-content { padding: 40px 20px; }
+            
+            .dif-cards { grid-template-columns: 1fr; }
+            
+            footer { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<!-- MENU FIXO -->
 <nav>
     <div class="nav-logo">Paula Bitencourt</div>
     <div class="nav-links">
         <a href="#sobre">Sobre</a>
-        <a href="#diferenciais">Diferenciais</a>
         <a href="#faq">Dúvidas</a>
-        <a href="#contato" class="nav-btn">Agendar Consulta</a>
+        <a href="#contato" class="nav-btn">Agendar</a>
     </div>
 </nav>
 
-<!-- BANNER PRINCIPAL (IMERSIVO) -->
+<!-- BANNER IMERSIVO -->
 <header class="site-header reveal"></header>
 
-<!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-left">
-        <p class="hero-tag reveal">Nutrição Clínica Individualizada</p>
+        <p class="hero-tag reveal">Nutrição Clínica & Individualizada</p>
         <h2 class="reveal">Saúde não é sobre restrição. É sobre <em>viver melhor.</em></h2>
-        <p class="hero-desc reveal">Abordagem <strong>científica e acolhedora</strong> em São Leopoldo ou no conforto da sua casa via atendimento online. Vamos construir sua melhor versão juntos.</p>
-        <a href="https://wa.me/5551989563453" target="_blank" class="hero-btn reveal">Agendar pelo WhatsApp</a>
-        <div class="hero-location reveal">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Presencial em São Leopoldo &nbsp;·&nbsp; <strong>Atendimento Online Mundial</strong>
-        </div>
+        <p class="hero-desc reveal">Abordagem científica e acolhedora em São Leopoldo ou no conforto da sua casa via atendimento online. Vamos construir a sua melhor versão juntos.</p>
+        <a href="https://wa.me/5551989563453" target="_blank" class="hero-btn reveal">Agendar Consulta</a>
     </div>
     <div class="hero-right">
         <div class="hero-img-wrap reveal">
             <img src="./fotos/foto2.png" alt="Paula Bitencourt - Nutricionista">
-            <div class="hero-badge">
-                Paula Bitencourt
-            </div>
+            <div class="hero-badge">Paula Bitencourt</div>
         </div>
     </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee">
     <div class="marquee-inner">
-        <span class="mi">Ciência <span>✦</span></span>
-        <span class="mi">Individualização <span>✦</span></span>
-        <span class="mi">Escuta Ativa <span>✦</span></span>
-        <span class="mi">Hábito Real <span>✦</span></span>
-        <span class="mi">Ciência <span>✦</span></span>
-        <span class="mi">Individualização <span>✦</span></span>
-        <span class="mi">Escuta Ativa <span>✦</span></span>
+        <span class="mi">Ciência ✦ Individualização ✦ Escuta Ativa ✦ Hábito Real ✦ Ciência ✦ Individualização ✦ Escuta Ativa ✦</span>
     </div>
 </div>
 
-<!-- DIFERENCIAIS -->
-<section class="diferenciais" id="diferenciais">
-    <div class="dif-text reveal">
-        <p class="label" style="color: var(--dourado); font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Metodologia</p>
-        <h2>Nutrição que respeita a sua biologia e rotina.</h2>
-        <p>Acredito no poder da comida como ferramenta de saúde e bem-estar, sem terrorismos nutricionais.</p>
-    </div>
-    <div class="dif-cards reveal">
-        <div class="dif-card"><h3>✦ Raciocínio Clínico</h3><p>Análise profunda de exames para identificar a causa real das suas queixas.</p></div>
-        <div class="dif-card"><h3>✦ Empatia</h3><p>Entendo suas dificuldades e adaptamos o plano à sua realidade prática.</p></div>
-        <div class="dif-card"><h3>✦ Sustentabilidade</h3><p>Focamos em mudanças que você consiga manter para o resto da vida.</p></div>
-        <div class="dif-card"><h3>✦ Suporte Direto</h3><p>Canal direto comigo para tirar suas dúvidas durante todo o processo.</p></div>
+<section class="section-padding" id="diferenciais" style="background:#fff;">
+    <div class="grid-2">
+        <div class="reveal">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 20px;">Nutrição que respeita a sua história.</h2>
+            <p>Cada plano é construído do zero, adaptando a ciência à sua rotina prática e preferências alimentares.</p>
+        </div>
+        <div class="reveal" style="display:grid; gap:15px;">
+            <div class="dif-card"><h3>✦ Raciocínio Clínico</h3><p>Análise de exames para tratar a causa real.</p></div>
+            <div class="dif-card"><h3>✦ Sustentabilidade</h3><p>Mudanças que você consegue manter.</p></div>
+        </div>
     </div>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre" class="sobre">
     <div class="sobre-img reveal">
-        <img src="./fotos/foto4.png" alt="Sobre a Nutricionista Paula Bitencourt">
+        <img src="./fotos/foto4.png" alt="Sobre Paula Bitencourt">
     </div>
     <div class="sobre-content reveal">
-        <p class="label" style="color: var(--dourado); font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Experiência</p>
-        <h2>Ciência e acolhimento andam juntos.</h2>
-        <p>Sou graduada pela <strong>UFRGS</strong> e atuo na nutrição clínica com foco em saúde integral. Minha vivência como proprietária de um estúdio de pilates me permitiu olhar para o corpo de forma sistêmica.</p>
-        <p>Meu objetivo é que você tenha autonomia e paz com a comida e com o espelho.</p>
-        <div style="margin-top: 20px; border: 1px solid var(--dourado); padding: 12px 25px; display: inline-block; border-radius: 50px; font-size: 0.85rem; color: var(--dourado); font-weight: 600;">CRN-2 18880</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 20px;">Olá, sou a Paula.</h2>
+        <p>Nutricionista pela <strong>UFRGS</strong>, foco na saúde integral e performance. Acredito que a paz com a comida é o primeiro passo para um corpo saudável.</p>
+        <p style="margin-top:20px; font-weight:700; color:var(--dourado);">CRN-2 18880</p>
     </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="faq">
-    <div style="text-align: center; margin-bottom: 45px;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--marrom);">Perguntas Frequentes</h2>
-    </div>
-    <div class="faq-grid">
+<section id="faq" class="section-padding faq">
+    <div style="max-width:800px; margin:0 auto;">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; text-align:center; margin-bottom:40px;">Dúvidas Comuns</h2>
         <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Como funciona a primeira consulta? <span>+</span></button>
-            <div class="faq-a">Fazemos uma avaliação completa de sinais, sintomas e rotina. Definimos metas reais e construímos o plano alimentar juntos.</div>
+            <button class="faq-q" onclick="toggleFaq(this)">Como funciona a consulta online? <span>+</span></button>
+            <div class="faq-a">A consulta é feita por videochamada com a mesma profundidade da presencial, com plano via App.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Atende por convênio médico? <span>+</span></button>
-            <div class="faq-a">Atendimento particular apenas, com fornecimento de recibo para solicitação de reembolso no seu plano de saúde.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Terei que cortar alimentos que gosto? <span>+</span></button>
-            <div class="faq-a">Não. Trabalhamos com equilíbrio. O plano inclui alimentos que você gosta, ajustando frequências e quantidades para seus objetivos.</div>
+            <button class="faq-q" onclick="toggleFaq(this)">Terei que cortar o que gosto? <span>+</span></button>
+            <div class="faq-a">Não. Trabalhamos com equilíbrio, ajustando quantidades e frequências.</div>
         </div>
     </div>
 </section>
 
-<!-- CONTATO -->
-<section id="contato" class="contato">
-    <div class="contato-info reveal">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--vinho);">Vamos começar?</h2>
-        <p>Entre em contato para agendar o melhor horário e tirar suas dúvidas.</p>
-        <div style="margin-top: 40px; font-size: 0.95rem; line-height: 2;">
-            <p><strong>📍 Endereço:</strong> Centro, São Leopoldo - RS</p>
-            <p><strong>🕒 Horários:</strong> Seg a Sex, 08h às 19h</p>
+<section id="contato" class="section-padding" style="background:#fff;">
+    <div class="grid-2">
+        <div class="reveal">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;">Vamos começar?</h2>
+            <p style="margin-top:20px;">📍 São Leopoldo, RS | Online em todo o mundo.</p>
         </div>
-    </div>
-    <div class="reveal">
-        <div class="form-wrap">
-            <div class="fg"><label>Seu Nome</label><input type="text" placeholder="Nome Completo"></div>
+        <div class="reveal">
+            <div class="fg"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
             <div class="fg"><label>WhatsApp</label><input type="tel" placeholder="(51) 90000-0000"></div>
-            <div class="fg"><label>Objetivo</label><textarea placeholder="Conte brevemente o que busca..."></textarea></div>
-            <button class="form-btn" onclick="window.open('https://wa.me/5551989563453','_blank')">Solicitar Agendamento</button>
+            <button class="form-btn" onclick="window.open('https://wa.me/5551989563453','_blank')">Pedir Agendamento</button>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <div class="footer-brand">PAULA BITENCOURT <span>Nutricionista Clínica</span></div>
-    <div class="footer-copy">© 2025 · São Leopoldo, RS</div>
+    <div>PAULA BITENCOURT</div>
+    <div>© 2025 · Nutricionista Clínica</div>
 </footer>
 
 <script>
@@ -409,7 +336,7 @@
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.querySelectorAll('.site-header, .hero .reveal').forEach(el => el.classList.add('on'));
-        }, 150);
+        }, 100);
     });
 
     function toggleFaq(button) {
